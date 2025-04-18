@@ -16,10 +16,13 @@ const db = new pg.Client({
   port: process.env.PG_PORT,
 });
 
-db.connect(() => {
-  console.log("Connected to database");
-}
-);
+db.connect((err) => {
+  if (err) {
+    console.error("❌ Error connecting to DB:", err.stack);
+  } else {
+    console.log("✅ Connected to database");
+  }
+});
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
