@@ -18,9 +18,9 @@ const db = new pg.Client({
 
 db.connect((err) => {
   if (err) {
-    console.error("❌ Error connecting to DB:", err.stack);
+    console.error("Error connecting to DB:", err.stack);
   } else {
-    console.log("✅ Connected to database");
+    console.log("Connected to database");
   }
 });
 
